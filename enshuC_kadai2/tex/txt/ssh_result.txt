@@ -1,0 +1,14 @@
+r-kawakm@exp048:~$ ssh exp068
+The authenticity of host 'exp068 (192.168.16.47)' can't be established.
+ECDSA key fingerprint is SHA256:7b17ZyM1wvrsUa5xGcYXoFe18QYkzcrS44oSk02MOAg.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'exp068,192.168.16.47' (ECDSA) to the list of known hosts.
+r-kawakm@exp068's password:
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-124-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+0 個のパッケージがアップデート可能です。
+0 個のアップデートはセキュリティアップデートです。

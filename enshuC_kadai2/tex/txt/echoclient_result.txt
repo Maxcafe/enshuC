@@ -1,0 +1,4 @@
+r-kawakm@exp068:~/enshuC/enshuC_kadai2$ ./echoclient.exe exp048
+echoclient->
+echoclient->
+^C

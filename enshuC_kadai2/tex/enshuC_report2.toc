@@ -1,0 +1,19 @@
+\contentsline {section}{\numberline {1}(課題2-1) echoclient.c}{2}
+\contentsline {subsection}{\numberline {1.1}課題内容}{2}
+\contentsline {subsection}{\numberline {1.2}仕様}{2}
+\contentsline {subsection}{\numberline {1.3}実行結果}{2}
+\contentsline {subsection}{\numberline {1.4}プログラム説明}{4}
+\contentsline {section}{\numberline {2}(課題2-2) simple-talkプログラム}{7}
+\contentsline {subsection}{\numberline {2.1}課題内容}{7}
+\contentsline {subsection}{\numberline {2.2}仕様}{7}
+\contentsline {subsection}{\numberline {2.3}実行結果}{8}
+\contentsline {subsection}{\numberline {2.4}プログラム説明}{9}
+\contentsline {subsubsection}{\numberline {2.4.1}simple\_talk\_serverプログラムの説明}{9}
+\contentsline {subsubsection}{\numberline {2.4.2}simple\_talk\_clientプログラムの説明}{13}
+\contentsline {section}{\numberline {3}考察}{16}
+\contentsline {section}{\numberline {4}感想}{16}
+\contentsline {section}{\numberline {A}(付録) プログラムコード}{17}
+\contentsline {subsection}{\numberline {A.1}(課題2-1) echoserver.c}{17}
+\contentsline {subsection}{\numberline {A.2}(課題2-1) echoclient.c}{18}
+\contentsline {subsection}{\numberline {A.3}(課題2-2) simple\_talk\_server.c}{19}
+\contentsline {subsection}{\numberline {A.4}(課題2-2) simple\_talk\_client.c}{21}
