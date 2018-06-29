@@ -1,0 +1,72 @@
+ 1	#include <sys/types.h>
+ 2	#include <sys/socket.h>
+ 3	#include <netinet/in.h>
+ 4	#include <netdb.h>
+ 5	#include <unistd.h>
+ 6	#include <string.h>
+ 7	#include <stdio.h>
+ 8	#include <stdlib.h>
+ 9	#define PORT 10130
+10
+11	int main(int argc, char **argv) {
+12		int sock, nbytes;
+13		char sbuf[1024], *name, cbuf[1024];
+14		struct sockaddr_in svr;
+15		struct hostent *hp;
+16		fd_set rfds;
+17		struct timeval tv;
+18
+19		if(argc != 2) {
+20			fprintf(stderr, "Usage: %s hostname \n", argv[0]);
+21			exit(1);
+22		}else{
+23		  name = *(argv+1);
+24		}
+25
+26		if((sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP)) < 0){
+27		  perror("socket");
+28		  exit(1);
+29		}
+30
+31		bzero(&svr, sizeof(svr));
+32		svr.sin_family = AF_INET;
+33		svr.sin_port = htons(PORT);
+34		if((hp = gethostbyname(name)) == NULL){
+35		  perror("gethostbyname");
+36		  exit(1);
+37		}
+38		bcopy(hp->h_addr, &svr.sin_addr, hp->h_length);
+39
+40		if((connect(sock, (struct sockaddr *)&svr, sizeof(svr))) < 0){
+41		    perror("connect");
+42		    exit(1);
+43		}
+44		else {
+45			printf("connected\n" );
+46		}
+47
+48		do{
+49		  FD_ZERO(&rfds);
+50		  FD_SET(0, &rfds);
+51		  FD_SET(sock, &rfds);
+52		  tv.tv_sec = 1;
+53		  tv.tv_usec = 0;
+54		  memset(sbuf, '\0', sizeof(sbuf));
+55			memset(cbuf, '\0', sizeof(cbuf));
+56
+57		  if(select(sock+1, &rfds, NULL, NULL, &tv) > 0){
+58			  if(FD_ISSET(sock, &rfds)){
+59			    if((nbytes = read(sock, cbuf, sizeof(cbuf))) > 0){
+60			      write(1, cbuf, nbytes);
+61			    }
+62			  }
+63			  if(FD_ISSET(0, &rfds)){
+64			    if((nbytes = read(0, sbuf, sizeof(sbuf))) > 0){
+65			      write(sock, sbuf, nbytes);
+66			    }
+67			  }
+68		  }
+69		} while(nbytes != 0);
+70		close(sock);
+71		printf("closed\n");
+72	}

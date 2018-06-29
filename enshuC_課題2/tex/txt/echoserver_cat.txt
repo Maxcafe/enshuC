@@ -1,0 +1,71 @@
+ 1	#include <sys/types.h>
+ 2	#include <sys/socket.h>
+ 3	#include <netinet/in.h>
+ 4	#include <netdb.h>
+ 5	#include <unistd.h>
+ 6	#include <string.h>
+ 7	#include <stdio.h>
+ 8	#include <stdlib.h>
+ 9
+10	int main(int argc,char **argv) {
+11	  int sock,csock;
+12	  struct sockaddr_in svr;
+13	  struct sockaddr_in clt;
+14	  struct hostent *cp;
+15	  int clen;
+16	  char rbuf[1024];
+17	  int nbytes;
+18	  int reuse;
+19	  /* ソケットの生成*/
+20	  if ((sock=socket(AF_INET,SOCK_STREAM,IPPROTO_TCP))<0) {
+21	    perror("socket");
+22	    exit(1);
+23	  }
+24	  /* ソケットアドレス再利用の指定*/
+25	  reuse=1;
+26	  if(setsockopt(sock,SOL_SOCKET,SO_REUSEADDR,&reuse,sizeof(reuse))<0) {
+27	    perror("setsockopt");
+28	    exit(1);
+29	  }
+30	  /* client 受付用ソケットの情報設定*/
+31	  bzero(&svr,sizeof(svr));
+32	  svr.sin_family=AF_INET;
+33	  svr.sin_addr.s_addr=htonl(INADDR_ANY);
+34	  /* 受付側のIP アドレスは任意*/
+35	  svr.sin_port=htons(10120); /* ポート番号10120 を介して受け付ける*/
+36	  /* ソケットにソケットアドレスを割り当てる*/
+37	  if(bind(sock,(struct sockaddr *)&svr,sizeof(svr))<0) {
+38	    perror("bind");
+39	    exit(1);
+40	  }
+41	  /* 待ち受けクライアント数の設定*/
+42	  if (listen(sock,5)<0) { /* 待ち受け数に5 を指定*/
+43	    perror("listen");
+44	    exit(1);
+45	  }
+46	  do {
+47	  /* クライアントの受付*/
+48	    clen = sizeof(clt);
+49	    if ( ( csock = accept(sock,(struct sockaddr *)&clt,&clen) ) <0 ) {
+50	      perror("accept");
+51	      exit(2);
+52	    }
+53	  /* クライアントのホスト情報の取得*/
+54	    cp = gethostbyaddr((char *)&clt.sin_addr,sizeof(struct in_addr),AF_INET);
+55	    printf("[%s]\n",cp->h_name);
+56	    do {
+57	      memset(rbuf, '\0', sizeof(rbuf));
+58	      /* クライアントからのメッセージ受信*/
+59	      if ( ( nbytes = read(csock,rbuf,sizeof(rbuf)) ) < 0) {
+60	        perror("read");
+61	      } else {
+62	        write(csock,rbuf,nbytes);
+63	        /* 受信文字列をそのままクライアントへ返す(echo) */
+64	      }
+65	    } while ( nbytes != 0 );
+66	    /* read() が0 を返すまで(=End-Of-File) 繰り返す*/
+67	    close(csock);
+68	    printf("closed\n");
+69	  }
+70	  while(1); /* 次の接続要求を繰り返し受け付ける*/
+71	}

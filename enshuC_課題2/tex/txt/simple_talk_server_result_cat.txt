@@ -1,0 +1,7 @@
+ 1	r-kawakm@exp048:~/enshuC$ gcc -o simple_talk_server.exe simple_talk_server.c
+ 2	r-kawakm@exp048:~/enshuC$ ./simple_talk_server.exe
+ 3	[exp068.exp.ics.es.osaka-u.ac.jp]
+ 4	connected
+ 5	cl->sv
+ 6	sv->cl
+ 7	closed

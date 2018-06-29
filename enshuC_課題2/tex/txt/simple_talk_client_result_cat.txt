@@ -1,0 +1,6 @@
+ 1	r-kawakm@exp068:~/enshuC$ gcc -o simple_talk_client.exe simple_talk_client.c
+ 2	r-kawakm@exp068:~/enshuC$ ./simple_talk_client.exe exp048
+ 3	connected
+ 4	cl->sv
+ 5	sv->cl
+ 6	closed
