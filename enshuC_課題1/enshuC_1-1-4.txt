@@ -1,6 +1,0 @@
-     1	r-kawakm@exp072:~$ /usr/sbin/arp -a
-     2	svm-01.exp.ics.es.osaka-u.ac.jp (192.168.16.241) at 02:a0:98:c4:b2:cf [ether] on ens192
-     3	? (192.168.16.254) at 14:18:77:10:31:aa [ether] on ens192
-     4	exp017.exp.ics.es.osaka-u.ac.jp (192.168.16.4) at 00:50:56:b7:7b:db [ether] on ens192
-     5	dhcp-01.exp.ics.es.osaka-u.ac.jp (192.168.16.240) at 00:50:56:b7:21:6e [ether] on ens192
-     6	cups.exp.ics.es.osaka-u.ac.jp (192.168.16.253) at 00:50:56:b7:5b:4b [ether] on ens192

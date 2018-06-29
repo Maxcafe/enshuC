@@ -1,5 +1,0 @@
- 1	r-kawakm@exp068:~/enshuC/enshuC_kadai2$ ./echoclient.exe exp048
- 2	echoclient->
- 3	echoclient->
- 4  Hello World!
- 5  Hello World!

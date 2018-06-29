@@ -1,8 +1,0 @@
-r-kawakm@exp048:~$ cd enshuC/
-r-kawakm@exp048:~/enshuC$ gcc -o simple_talk_server.exe simple_talk_server.c
-r-kawakm@exp048:~/enshuC$ ./simple_talk_server.exe
-[exp068.exp.ics.es.osaka-u.ac.jp]
-connected
-cl->sv
-sv->cl
-closed

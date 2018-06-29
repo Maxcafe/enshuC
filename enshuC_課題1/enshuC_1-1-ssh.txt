@@ -1,7 +1,0 @@
-     1	r-kawakm@exp003:~$ ssh exp101 echo hello
-     2	The authenticity of host 'exp101 (192.168.16.65)' can't be established.
-     3	ECDSA key fingerprint is SHA256:7b17ZyM1wvrsUa5xGcYXoFe18QYkzcrS44oSk02MOAg.
-     4	Are you sure you want to continue connecting (yes/no)? yes
-     5	Warning: Permanently added 'exp101,192.168.16.65' (ECDSA) to the list of known hosts.
-     6	r-kawakm@exp101's password:
-     7	hello

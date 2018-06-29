@@ -1,6 +1,0 @@
- 1	r-kawakm@exp048:~/enshuC$ cd enshuC_kadai2/
- 2	r-kawakm@exp048:~/enshuC/enshuC_kadai2$ ./echosever.exe
- 3	[exp068.exp.ics.es.osaka-u.ac.jp]
- 4	echosever->
- 5	closed
- 6	^C

@@ -1,7 +1,0 @@
-     1	r-kawakm@exp072:~$ nslookup www-ise4.ist.osaka-u.ac.jp
-     2	Server:		192.168.25.6
-     3	Address:	192.168.25.6#53
-     4	
-     5	Non-authoritative answer:
-     6	Name:	www-ise4.ist.osaka-u.ac.jp
-     7	Address: 133.1.16.2
